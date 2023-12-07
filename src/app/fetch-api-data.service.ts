@@ -33,7 +33,7 @@ export class FetchApiDataService {
   }
 
   private handleError(error: HttpErrorResponse): any {
-    if (error.error instanceof ErrorEvent) {
+    if (error.error instanceof HttpErrorResponse) { //changed ErrorEvent to HttpErrorResponse, because it was throwing errors, per 'https://stackoverflow.com/questions/56577315/error-referenceerror-errorevent-is-not-defined-for-nativescript-app'
       console.error("Some error occurred:", error.error.message);
     } else {
       console.error(

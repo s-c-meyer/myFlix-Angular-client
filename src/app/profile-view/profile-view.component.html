@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<div>
+  <p>Username: {{currentUser.Username}}</p>
+  <p>Email: {{currentUser.Email}}</p>
+  <p>Birthday: {{currentUser.Birthday | date: 'longDate' }}</p>
+</div>
+<!-- If there are no Favorite Movies display this div -->
+<div *ngIf="currentUser.FavoriteMovies.length === 0; else elseBlock">
+  You have no Favorite Movies to display! Consider adding some from the movies screen.
+</div>
+
+<!-- Otherwise display this div -->
+<ng-template #elseBlock >
+  <mat-card *ngFor="let favoriteMovie of favoriteMovies;" style="flex: 1 1 auto;">
+    <mat-card-header>
+      <mat-card-title>{{favoriteMovie.Title}}</mat-card-title>
+      <mat-card-subtitle>Directed By: {{favoriteMovie.Director.Name}}</mat-card-subtitle>
+      <mat-card-subtitle>Genre: {{favoriteMovie.Genre.Name}}</mat-card-subtitle>
+    </mat-card-header>
+    <img src={{favoriteMovie.ImagePath}} alt={{favoriteMovie.Title}} />
+  </mat-card>
+</ng-template>
