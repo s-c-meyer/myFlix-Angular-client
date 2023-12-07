@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
 import { MatDialog } from '@angular/material/dialog';
+import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,12 @@ export class AppComponent {
   openUserRegistrationDialog(): void {
     this.dialog.open(UserRegistrationFormComponent, {
       //assigning the dialog a width
+      width: '280px'
+    });
+  }
+
+  openUserLoginDialog(): void {
+    this.dialog.open(UserLoginFormComponent, {
       width: '280px'
     });
   }
