@@ -5,7 +5,11 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { FetchApiDataService } from '../fetch-api-data.service';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { resourceLimits } from 'worker_threads';
+
+
+
+
+
 
 @Component({
   selector: 'app-user-login-form',
@@ -14,7 +18,9 @@ import { resourceLimits } from 'worker_threads';
 })
 export class UserLoginFormComponent implements OnInit {
 
-  @Input() userData = { Username: '', Password: '', Token: ''}; //I'm not sure if I need token here or not. 
+  
+
+  @Input() userData = { Username: '', Password: ''}; //I'm not sure if I need token here or not. 
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -27,13 +33,20 @@ export class UserLoginFormComponent implements OnInit {
   loginUser(): void {
     this.fetchApiData.userLogin(this.userData).subscribe((result) => {
       this.dialogRef.close();
-      console.log(this.userData);
-      localStorage.setItem('username', this.userData.Username);
-      localStorage.setItem('token', this.userData.Token);
+      console.log(result.user);
+      localStorage.setItem('user', JSON.stringify(result.user));
+      localStorage.setItem('token', result.token);
+
+      //why does this line below return [object Object] but the exact same line in Profile View returns the correct object??
+      // const testUser = JSON.parse(localStorage.getItem('user') || '[]'); 
+      // console.log('This is stored in localStorage as user: ' + testUser);
+
+      
       this.snackBar.open('User Login Successful', 'OK', {
         duration: 2000
       });
     }, (result) => {
+      console.log(result);
       this.snackBar.open(result, 'OK', {
         duration: 2000
       });
