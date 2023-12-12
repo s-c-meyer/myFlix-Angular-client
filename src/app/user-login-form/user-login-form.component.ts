@@ -37,11 +37,6 @@ export class UserLoginFormComponent implements OnInit {
       console.log(result.user);
       localStorage.setItem('user', JSON.stringify(result.user));
       localStorage.setItem('token', result.token);
-
-      //why does this line below return [object Object] but the exact same line in Profile View returns the correct object??
-      const testUser = JSON.parse(localStorage.getItem('user') || '[]'); 
-      console.log('This is stored in localStorage as user: ' + testUser);
-
       this.router.navigate(['movies']); //navigates to the moves route once you are logged in
       this.snackBar.open('User Login Successful', 'OK', {
         duration: 2000

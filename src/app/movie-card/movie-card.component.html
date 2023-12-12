@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <div>
-  <!-- To be used to access Profile View once implemented -->
   <button
+    class="header-button"
     mat-button
     (click)="showProfileView()">
     Profile View
   </button>
 </div>
 
-<div style="display: flex;">
+<div style="display: flex; flex-wrap: wrap; justify-content: center;">
   <mat-card *ngFor="let movie of movies;" style="flex: 1 1 auto;">
     <mat-card-header>
       <mat-card-title>{{movie.Title}}</mat-card-title>
-      <mat-card-subtitle>Directed by: {{movie.Director.Name}}</mat-card-subtitle>
+      <mat-card-subtitle style="margin-bottom: 1em;">Directed by: {{movie.Director.Name}}</mat-card-subtitle>
     </mat-card-header>
     <img src={{movie.ImagePath}} alt={{movie.Title}} />
     <mat-card-actions>
@@ -26,26 +26,23 @@
       <button
         mat-button
         color="primary"
+        (click)="openDirectorDialog(movie.Director)"
       >
         Director
       </button>
       <button
         mat-button
         color="primary"
+        (click)="openSynopsisDialog(movie.Description)"
       >
         Synopsis
       </button>
-      <mat-icon>favorite_border</mat-icon>
+      <button
+        mat-button
+        (click)="favoriteMovie(movie._id)"
+      >
+        <mat-icon>favorite_border</mat-icon>
+      </button>
     </mat-card-actions>
   </mat-card>
 </div>
-
-
-<!-- ngFor is being used to display all returned movies,
-where each movie is then displayed in its own card -->
-<!-- <mat-card *ngFor="let movie of movies; let i=index;">
-  <mat-dialog-content>
-    <mat-card-title>{{movie.Title}}</mat-card-title>
-    <mat-card-subtitle><img src={{movie.ImagePath}} /></mat-card-subtitle>
-  </mat-dialog-content>
-</mat-card> -->

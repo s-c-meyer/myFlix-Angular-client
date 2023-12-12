@@ -21,6 +21,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { ProfileViewComponent } from './profile-view/profile-view.component';
 import { GenreViewComponent } from './genre-view/genre-view.component';
+import { DirectorViewComponent } from './director-view/director-view.component';
+import { SynopsisViewComponent } from './synopsis-view/synopsis-view.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent},
@@ -37,7 +39,9 @@ const appRoutes: Routes = [
     MovieCardComponent,
     WelcomePageComponent,
     ProfileViewComponent,
-    GenreViewComponent
+    GenreViewComponent,
+    DirectorViewComponent,
+    SynopsisViewComponent
   ],
   imports: [
     BrowserModule,
@@ -56,8 +60,7 @@ const appRoutes: Routes = [
   ],
   providers: [
     provideClientHydration(),
-    provideHttpClient(withFetch()),
-    MovieCardComponent
+    provideHttpClient(withFetch())
   ],
   bootstrap: [AppComponent]
 })
