@@ -21,12 +21,28 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    //"normalTypeScriptOptions": "here"
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
+  },
+  "typedocOptions": {
+    "entryPoints": [
+      "src/app/fetch-api-data.service.ts",
+      "src/app/director-view/director-view.component.ts",
+      "src/app/genre-view/genre-view.component.ts",
+      "src/app/movie-card/movie-card.component.ts", 
+      "src/app/profile-view/profile-view.component.ts",
+      "src/app/synopsis-view/synopsis-view.component.ts",
+      "src/app/user-login-form/user-login-form.component.ts",
+      "src/app/user-registration-form/user-registration-form.component.ts",
+      "src/app/welcome-page/welcome-page.component.ts",
+      "src/app/app.component.ts"
+    ],
+    "out": "docs"
   }
 }

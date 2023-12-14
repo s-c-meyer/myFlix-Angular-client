@@ -8,13 +8,19 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './welcome-page.component.html',
   styleUrl: './welcome-page.component.scss'
 })
+
+/**
+ * This class creates a welcome page, which allows a user to either register or login
+ */
 export class WelcomePageComponent {
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
-  //this is the function that will open the dialog when the signup button is clicked
+  /**
+   * This function will open a dialog that allows the user to register for the app
+   */
   openUserRegistrationDialog(): void {
     this.dialog.open(UserRegistrationFormComponent, {
       //assigning the dialog a width
@@ -22,6 +28,9 @@ export class WelcomePageComponent {
     });
   }
 
+  /**
+   * This function will open a dialog that allows the user to login to the app
+   */
   openUserLoginDialog(): void {
     this.dialog.open(UserLoginFormComponent, {
       width: '280px'

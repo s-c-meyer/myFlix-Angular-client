@@ -14,6 +14,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './user-registration-form.component.html',
   styleUrl: './user-registration-form.component.scss'
 })
+
+/**
+ * This class creates a user registration form to be used on the welcome page
+ */
 export class UserRegistrationFormComponent implements OnInit {
 
   @Input() userData = { Username: '', Password: '', Email: '', Birthday: ''};
@@ -27,7 +31,11 @@ export class UserRegistrationFormComponent implements OnInit {
     
   }
 
-  //this is the function responsible for sending the form inputs to the backend
+ 
+  /**
+   * Registers the user, posting their information to the database, and
+   * notifying the user that the registration was successful
+   */
   registerUser(): void {
     this.fetchApiData.userRegistration(this.userData).subscribe((result) => {
       //Logic for a successful user registration goes here (to be implemented)
@@ -43,21 +51,4 @@ export class UserRegistrationFormComponent implements OnInit {
       });
     });
   }
-
-
-  //trying a fix because it says subscribe is deprecated
-  // registerUser(): void {
-  //   this.fetchApiData.userRegistration(this.userData).subscribe({
-  //     next: (result) => {
-  //       this.dialogRef.close(); //close the modal on a success
-  //       console.log(result);
-  //       this.snackBar.open(result, 'OK', {
-  //       duration: 2000
-  //     });
-  //     },
-  //     error: (e) => console.error(e),
-  //     complete: () => console.info('complete')
-  //   });
-  // };
-
 }

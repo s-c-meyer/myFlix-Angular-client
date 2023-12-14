@@ -8,6 +8,11 @@ import { FetchApiDataService } from '../fetch-api-data.service';
   styleUrl: './profile-view.component.scss'
 })
 
+/**
+ * This class creates the ProfileViewComponent, which is displayed
+ * when the user clicks on the Profile View button the main page.
+ * This routes the user to /profile
+ */
 export class ProfileViewComponent implements OnInit {
   movies: any[] = [];
   favoriteMovies: any[] = [];
@@ -21,15 +26,10 @@ export class ProfileViewComponent implements OnInit {
     this.displayUserInfo();
   }
 
-  // getMovies(): void {
-  //   this.fetchApiData.getAllMovies().subscribe((resp: any) => {
-  //     this.movies = resp;
-  //     console.log('this.movies should be below this');
-  //     console.log(this.movies); //do somethnig with this JSON.stringify??? Something is not in the right format? 
-  //     return this.movies;
-  //   });
-  // }
-
+  /**
+   * Retrieves the user info from localStorage, and filters through the array of all movies to find
+   * the movie objects that match the user's FavoriteMovies
+   */
   displayUserInfo(): void {
     this.currentUser = JSON.parse(localStorage.getItem('user') || '[]');
     
@@ -38,6 +38,9 @@ export class ProfileViewComponent implements OnInit {
     })
   }
 
+  /**
+   * Routes back to /movies 
+   */
   showMovieView(): void {
     this.router.navigate(['movies']);
   }

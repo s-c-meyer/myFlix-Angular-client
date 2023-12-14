@@ -8,17 +8,16 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { Router } from '@angular/router';
 
-
-
-
 @Component({
   selector: 'app-user-login-form',
   templateUrl: './user-login-form.component.html',
   styleUrl: './user-login-form.component.scss'
 })
-export class UserLoginFormComponent implements OnInit {
 
-  
+/**
+ * This class creates a user login form to be used on the welcome page
+ */
+export class UserLoginFormComponent implements OnInit {
 
   @Input() userData = { Username: '', Password: ''}; //I'm not sure if I need token here or not. 
 
@@ -31,6 +30,10 @@ export class UserLoginFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * Logs the user in, and assigned the user object and an authorization token to localStorage,
+   * also notifies the user that they have been logged in successfully
+   */
   loginUser(): void {
     this.fetchApiData.userLogin(this.userData).subscribe((result) => {
       this.dialogRef.close();

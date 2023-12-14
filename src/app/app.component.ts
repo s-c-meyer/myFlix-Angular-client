@@ -5,12 +5,10 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
+
+/**
+ * This component houses the App
+ */
 export class AppComponent {
   title = 'myFlix-Angular-client'; 
-
-  // openMoviesDialog(): void {
-  //   this.dialog.open(MovieCardComponent, {
-  //     width: '500px'
-  //   });
-  // }
 }

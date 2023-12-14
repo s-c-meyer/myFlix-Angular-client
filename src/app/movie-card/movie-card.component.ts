@@ -13,6 +13,9 @@ import { SynopsisViewComponent } from '../synopsis-view/synopsis-view.component'
   styleUrl: './movie-card.component.scss'
 })
 
+/**
+ * This class creates the Movie Card Component, which displays every movie in the database
+ */
 export class MovieCardComponent  {
   movies: any[] = [];
   currentMovieGenre: any;
@@ -29,6 +32,11 @@ export class MovieCardComponent  {
     this.getMovies();
   }
 
+  /**
+   * This function gets all movies from the database
+   * 
+   * @returns an array of movie objects
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -36,6 +44,12 @@ export class MovieCardComponent  {
     });
   }
 
+  /**
+   * Add's the current movie to the logged in user's FavoriteMovie's list. Also displays a snackbar to let 
+   * the user know the movie has been successfully added
+   * 
+   * @param movieId The unique ID given to the movie in the database
+   */
   favoriteMovie(movieId: any): void {
     // this.currentUser = JSON.parse(localStorage.getItem('user') || '[]');
     // console.log(this.currentUser.Username);
@@ -47,10 +61,19 @@ export class MovieCardComponent  {
     })
   }
 
+  /**
+   * Routes the user to the profile view
+   */
   showProfileView(): void {
     this.router.navigate(['profile']);
   }
 
+  /**
+   * Opens a dialog that tells the user more about the movie's genre,
+   * including the genre name and description
+   * 
+   * @param genre The genre of the current movie
+   */
   openGenreDialog(genre: any): void {
     this.dialog.open(GenreViewComponent, {
       width: '350px',
@@ -61,6 +84,12 @@ export class MovieCardComponent  {
     });
   }
 
+  /**
+   * Opens a dialog that tells the user more about the movie's director,
+   * including the director's name, bio, and birth year
+   * 
+   * @param director The director of the current movie
+   */
   openDirectorDialog(director: any): void {
     this.dialog.open(DirectorViewComponent, {
       width: '350px',
@@ -72,6 +101,11 @@ export class MovieCardComponent  {
     });
   }
 
+  /**
+   * Opens a dialog that tells the user the synopsis of the current movie
+   * 
+   * @param summary 
+   */
   openSynopsisDialog(summary: any): void {
     this.dialog.open(SynopsisViewComponent, {
       width: '350px',
