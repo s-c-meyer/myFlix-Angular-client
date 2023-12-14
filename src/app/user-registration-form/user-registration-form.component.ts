@@ -1,12 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-
-//This import is used to close the dialog on success
 import { MatDialogRef } from '@angular/material/dialog';
-
-//This import brings in the API calls we created in 6.2
 import { FetchApiDataService } from '../fetch-api-data.service';
-
-//This import is used to display notifications back to the user
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({ //use the component decorator to tell Angular that the class right below is a component
@@ -28,10 +22,9 @@ export class UserRegistrationFormComponent implements OnInit {
     public snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-    
+
   }
 
- 
   /**
    * Registers the user, posting their information to the database, and
    * notifying the user that the registration was successful
