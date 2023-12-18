@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<div>
+  <button
+    mat-button
+    (click)="showMovieView()">
+    <mat-icon>arrow_back</mat-icon>
+    Back
+  </button>
+</div>
+
+<div>
+  <h1 style="display: flex; justify-content: center;">User Information</h1>
+  <p style="display: flex; justify-content: center; font-size: larger;">Username: {{currentUser.Username}}</p>
+  <p style="display: flex; justify-content: center; font-size: larger;">Email: {{currentUser.Email}}</p>
+  <p style="display: flex; justify-content: center; font-size: larger;">Birthday: {{currentUser.Birthday | date: 'longDate' }}</p>
+</div>
+<!-- If there are no Favorite Movies display this div -->
+<div *ngIf="currentUser?.FavoriteMovies?.length === 0; else elseBlock">
+  You have no Favorite Movies to display! Consider adding some from the movies screen.
+</div>
+
+<!-- Otherwise display this div -->
+<ng-template #elseBlock>
+  <h1 style="display: flex; justify-content: center; margin-top: 2em;">Favorite Movies</h1>
+
+  <div style="display: flex; flex-wrap: wrap; flex-direction: row; justify-content: center;">
+    <mat-card *ngFor="let favoriteMovie of favoriteMovies;" style="flex: 1 1 auto;">
+      <mat-card-header>
+        <mat-card-title>{{favoriteMovie.Title}}</mat-card-title>
+        <mat-card-subtitle>Directed By: {{favoriteMovie.Director.Name}}</mat-card-subtitle>
+        <mat-card-subtitle>Genre: {{favoriteMovie.Genre.Name}}</mat-card-subtitle>
+      </mat-card-header>
+      <img src={{favoriteMovie.ImagePath}} alt={{favoriteMovie.Title}} />
+    </mat-card>
+  </div>
+</ng-template>

@@ -1,0 +1,31 @@
+mat-card {
+  max-width: 300px;
+  margin: 2em;
+}
+
+mat-card-header {
+  justify-content: center;
+}
+
+mat-card-title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+button {
+  margin-top: 2em;
+  margin-left: 3em;
+  border-style: solid;
+  // border-radius: 10%;
+  border-width: 2px;
+  font-size: medium;
+}
+
+// ng-template {
+//   display: flex;
+//   flex-wrap: wrap;
+//   flex-direction: row;
+//   justify-content: center;
+// }
+
