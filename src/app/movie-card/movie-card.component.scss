@@ -19,8 +19,15 @@ img {
 
 .header-button {
   margin-top: 2em;
-  margin-left: 3em;
-  border-style: solid;
-  border-width: 2px;
+  margin-right: 2em;
+  border-bottom: 1px solid;
+  border-radius: 0;
   font-size: medium;
+
+}
+
+.header {
+  display: flex; 
+  justify-content: right;
+  margin-bottom: 2rem; 
 }

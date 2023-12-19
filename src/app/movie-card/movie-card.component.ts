@@ -114,4 +114,12 @@ export class MovieCardComponent  {
       },
     });
   }
+
+  logoutUser(): void {
+    localStorage.clear;
+    this.router.navigate(['welcome']); //navigates to the welcome route once you are logged out
+    this.snackBar.open('User Logout Successful', 'OK', {
+      duration: 2000
+    });
+  }
 }
