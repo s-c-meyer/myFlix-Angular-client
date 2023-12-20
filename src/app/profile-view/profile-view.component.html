@@ -24,9 +24,9 @@
 <ng-template #elseBlock>
   <h1 style="display: flex; justify-content: center; margin-top: 2em;">Favorite Movies</h1>
 
-  <div style="display: flex; flex-wrap: wrap; flex-direction: row; justify-content: center;">
-    <mat-card *ngFor="let favoriteMovie of favoriteMovies;" style="flex: 1 1 auto;">
-      <mat-card-header>
+  <div style="display: flex; flex-wrap: wrap; flex-direction: row; justify-content: center; align-items: center;">
+    <mat-card class="shadow-hover" *ngFor="let favoriteMovie of favoriteMovies;" style="flex: 1 1 auto;">
+      <mat-card-header style="min-height: 90px;">
         <mat-card-title>{{favoriteMovie.Title}}</mat-card-title>
         <mat-card-subtitle>Directed By: {{favoriteMovie.Director.Name}}</mat-card-subtitle>
         <mat-card-subtitle>Genre: {{favoriteMovie.Genre.Name}}</mat-card-subtitle>

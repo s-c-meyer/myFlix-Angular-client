@@ -1,18 +1,26 @@
 <!DOCTYPE html>
-<div>
-  <button
+<div class="header">
+  <span>
+    <button
     class="header-button"
     mat-button
     (click)="showProfileView()">
     Profile View
-  </button>
+    </button>
+    <button
+      class="header-button"
+      mat-button
+      (click)="logoutUser()">
+      Logout
+    </button>
+  </span>
 </div>
 
-<div style="display: flex; flex-wrap: wrap; justify-content: center;">
-  <mat-card *ngFor="let movie of movies;" style="flex: 1 1 auto;">
-    <mat-card-header>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
+  <mat-card class="shadow-hover" *ngFor="let movie of movies;" style="flex: 1 1 auto;">
+    <mat-card-header style="min-height: 90px;">
       <mat-card-title>{{movie.Title}}</mat-card-title>
-      <mat-card-subtitle style="margin-bottom: 1em;">Directed by: {{movie.Director.Name}}</mat-card-subtitle>
+      <mat-card-subtitle style="margin-bottom: 1em; display: flex; justify-content: center;">Directed by: {{movie.Director.Name}}</mat-card-subtitle>
     </mat-card-header>
     <img src={{movie.ImagePath}} alt={{movie.Title}} />
     <mat-card-actions>
